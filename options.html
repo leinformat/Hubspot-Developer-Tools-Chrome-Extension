@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- sweetalert -->
+    <script src="./plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="./plugins/sweetalert/sweetalert2.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="./css/setting/styles.css">
+    <title>Clickup Extension | Settings</title>
+</head>
+<body>
+    <main class="clickup-settings">
+      <section class="clickup-settings__container vibrating-div">
+        <h1 class="clickup-settings__title">Account Settings</h1>
+        <div class="clickup-extension--border"></div>
+        <!-- User Data -->
+        <section class="clickup-settings__profile-info">
+          <h3 class="">Profile</h3>
+          <div class="clickup-settings__info-container">
+            <img class="clickup-settings__user-avatar">
+          </div>
+          <div class="clickup-settings__info-container">
+            <p>Name</p>
+            <p class="clickup-settings__user-name clickup-settings--bold">Leonardo </p>
+          </div>
+          <div class="clickup-settings__info-container">
+            <p>Email</p>
+            <p class="clickup-settings__user-email clickup-settings--bold">test01060623@gmail.com</p>
+          </div>
+          <button title="Settings" class="clickup-extension__resetAuthAll button--primary">Reset Credentials</button>
+        </section>
+        <!-- Settings -->
+        <div class="clickup-extension--border"></div>
+        <section class="clickup-settings__notifications">
+          <h3 class="">Notifications</h3>
+          <div class="clickup-settings__sound-container">
+            <p>Turn off Sound Notifications</p>
+            <input type="checkbox" id="sound-notification" class="clickup-settings__bt-notification">
+          </div>
+        </section>
+        <!-- QA Section -->
+        <section class="clickup-settings__notifications clickup--container">
+          <h1 class="clickup-settings__title">QA Options</h1>
+          <div class="clickup-extension--border"></div>
+          <div class="clickup-settings__teams-container clickup--container">
+            <h3>Teams</h3>
+            <!-- Teams Content -->
+            <div class="clickup-settings__teams"></div>
+          </div>
+        </section>
+      </section>
+    </main>
+    <script defer type="module" src="./settings.js"></script>
+</body>
+</html>

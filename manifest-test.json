@@ -1,0 +1,68 @@
+{
+    "manifest_version": 3,
+    "name": "Hubspot Developer Tools",
+    "version": "1.0",
+    "description": "Una extensión para llevar un control  de las tareas asignadas y sus estados en clickup",
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": "./images/logo.png"
+    },
+    "permissions": [
+      "activeTab",
+      "storage",
+      "notifications",
+      "tabs",
+      "webNavigation",
+      "contextMenus",
+      "scripting",
+      "offscreen"
+    ],
+    "background": {
+      "service_worker": "background.js",
+      "type": "module"
+    },
+    "host_permissions":[
+      "<all_urls>"
+    ],
+    "icons": {
+      "16": "./images/logo.png",
+      "48": "./images/logo.png",
+      "128": "./images/logo.png"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "<all_urls>"
+        ],
+        "css": [
+          "./plugins/sweetalert/sweetalert2.min.css",
+          "./css/content-script.css"
+        ],
+        "js": [
+          "./plugins/sweetalert/sweetalert2.all.min.js",
+          "content-script.js"
+        ],
+        "run_at": "document_idle"
+      }
+    ],
+    "content_security_policy": {
+      "extension_pages": "default-src 'none'; font-src 'self' data:; img-src * data: blob:; https://cdnjs.cloudflare.com/* https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.32.1/min/vs/editor/editor.main.js; script-src 'self'; style-src 'self' 'unsafe-inline'; frame-src 'self' https://cdnjs.cloudflare.com/* https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.32.1/min/vs/editor/editor.main.js;"
+   },
+    "externally_connectable": {
+      "matches": [
+        "https://cdnjs.cloudflare.com/*"
+      ]
+    }
+   ,
+    "options_page": "options.html",
+    "web_accessible_resources": [
+      {
+        "resources": [
+          "audio/tarea-actualizada.mp3",
+          "images/loader2.gif"
+        ],
+        "matches": [ "<all_urls>" ],
+        "run_at": "document_idle"
+      }
+    ]
+  }

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Clickup Extension</title>
+  <!-- Fontawesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="./css//popup/popup.css">
+  <link rel="stylesheet" href="./plugins/sweetalert/sweetalert2.min.css">
+</head>
+<body>
+  
+  <main class="clickup-extension">
+    <div class="clickup-extension__hubl-container">
+      <h1><span>Clickup Extension</span> for Chrome <span class="clickup-extension--version">V 1.4.5</span></h1>
+      <button title="Hubl Fixer" class="clickup-extension__hubl-fixer button--secondary">Hubl Fixer</i></button>
+    </div>
+    <button title="Settings" class="clickup-extension__go-settings"><i class="fa-solid fa-gear fa-xl"></i></button>
+    <header class="clickup-extension__spaces">
+      <button class="button--secondary clickup-extension__qa-assigned-btn" data-type="tasks-to-qa">QA Assigned</button>
+      <button class="button--secondary clickup-extension__implementor-btn active" data-type="tasks-implentor">Implementor</button>
+    </header>
+    <section class="clickup-extension__user-auth-data">
+      <form class="clickup-extension__form">
+        <div class="clickup-extension__spinner">
+          <img src="./images/spinner.gif" alt="spiner">
+        </div>
+        <div class="clickup-extension__key-content">
+          <label class="clickup-extension__label" for="api-key">
+            <span class="clickup-extension__key-error"></span>
+          </label>
+          <input id="api-key" class="clickup-extension__key" type="text" name="key" placeholder="Enter your API Token" required autofocus>
+        </div>
+        <div class="clickup-extension__team-options-container">
+          <p class="clickup-extension__label-2">Please Select a Workspace</p>
+          <div class="clickup-extension__team-options">
+            <!-- Team Options -->
+          </div>
+        </div>
+        <div class="clickup-extension__email-content">
+          <label>
+            <span class="clickup-extension__email-error"></span>
+          </label>
+          <input class="clickup-extension__email" type="email" name="email" placeholder="Enter Your Email" required>
+        </div>
+        <div class="clickup-extension__submit-content">
+          <input class="clickup-extension__submit button--primary" type="submit" value="Save">
+        </div>
+      </form>
+    </section>
+    <!-- IMPLEMENTOR TASKS hide -->
+    <section class="clickup-extension__content hide tasks-implentor">
+        <div class="clickup-extension--implementor-spinner">
+          <img src="./images/spinner.gif" alt="spiner">
+        </div>
+        <p class="clickup-extension__auth-message"></p>
+        <header class="clickup-extension__counter-tasks to-implementor">
+          <!-- Counter Tasks -->
+        </header>
+        <div class="clickup-extension__tasks-container to-implementor">
+          <!-- First Task -->
+          <!-- active -->
+          <div style="border: solid 1px red;" class="clickup-extension__task show-only">
+            <!-- Task Header -->
+            <header class="clickup-extension__task-header">
+              <div class="clickup-extension__img-container">
+                <img src="./images/avatar.png" class="clickup-extension__img-asignBy">
+              </div>
+              <div class="clickup-extension__head-text">
+                <div class="clickup-extension__name-status">
+                  <div class="clickup-extension__asignBy-container">
+                    <span class="clickup-extension__label"><i class="fa-solid fa-user-shield"></i></span>
+                    <span class="clickup-extension__asignBy">Test Name</span>
+                  </div>
+                  <div class="clickup-extension__task-status-container">
+                    <span class="clickup-extension__label clickup-extension--status"><i class="fa-solid fa-signal"></i></span>
+                    <span class="clickup-extension__task-status">to be delivered</span>
+                  </div>
+                </div>
+                <a href="#" class="clickup-extension__task-name">This is the Task name</a>
+              </div>
+              <div class="clickup-extension__task-head-icon">
+                <i title="Show More" class="clickup-extension__open-task fa-solid fa-plus fa-beat-fade fa-lg"></i>
+              </div>
+            </header>
+            <!-- Task Content -->
+            <div class="clickup-extension__task-show-content">
+              <div class="clickup-extension__qa-info">
+                <div class="clickup-extension__qa-container">
+                  <span class="clickup-extension__label">Qa:</span>
+                  <span class="clickup-extension__qa-name">Unassigned</span>
+                </div>
+              </div>
+              <div class="clickup-extension__comments">
+                <div class="clickup-extension__copy-container implementor-comment">
+                  <span class="clickup-extension__label">Copy Qa Comment: <i class="fa-solid fa-copy fa-beat clickup-extension--copy-comment" data-comment="qa-slack"></i></span>
+                </div>
+                <div class="clickup-extension__copy-container implementor-comment">
+                  <span class="clickup-extension__label">Estimation Comment: <i class="fa-solid fa-copy fa-beat clickup-extension--copy-comment" data-comment="estimation"></i></span>
+                </div>
+                <div class="clickup-extension__copy-container implementor-comment">
+                  <span class="clickup-extension__label">Deliver To QA Comment: <i class="fa-solid fa-copy fa-beat clickup-extension--copy-comment" data-comment="deliver-to-qa"></i></span>
+                </div>
+                <div class="clickup-extension__copy-container qa-comment">
+                  <span class="clickup-extension__label">Copy QA Revision Comment: <i class="fa-solid fa-copy fa-beat clickup-extension--copy-comment" data-comment="revision-qa"></i></span>
+                </div>
+              </div>
+              <div class="clickup-extension__client-info">
+                <span class="clickup-extension__label"><i class="fa-solid fa-building"></i></span>
+                <span class="clickup-extension__client-name">CLinte name | Sub Cliente name</span>
+              </div>
+              <div class="clickup-extension__info-task-name">
+                <span class="clickup-extension__label"><i class="fa-solid fa-list-check"></i></span>
+                <span class="clickup-extension__full-task-name">This is the Task name</span>
+              </div>
+              <div class="clickup-extension__date-info">
+                <div class="clickup-extension__duedate-container">
+                  <span class="clickup-extension__label"><i class="fa-regular fa-calendar-days"></i> Created:</span>
+                  <span class="clickup-extension__created-date">25/09/2023</span>
+                </div>
+                <div class="clickup-extension__duedate-container">
+                  <span class="clickup-extension__label"><i class="fa-solid fa-stopwatch"></i> Due date:</span>
+                  <span class="clickup-extension__due-date">25/09/2023</span>
+                </div>
+              </div>
+              
+              <div class="clickup-extension__estimated-info">
+                <div class="clickup-extension__duedate-container">
+                  <span class="clickup-extension__label"><i class="fa-solid fa-medal"></i> Points:</span>
+                  <span class="clickup-extension__points">3</span>
+                </div>
+                <div class="clickup-extension__duedate-container">
+                  <span class="clickup-extension__label"><i class="fa-solid fa-play"></i> Tracked:</span>
+                  <span class="clickup-extension__tracked">2hours</span>
+                </div>
+                <div class="clickup-extension__duedate-container">
+                  <span class="clickup-extension__label"><i class="fa-solid fa-clock"></i> Estimated:</span>
+                  <span class="clickup-extension__estimated">3</span>
+                </div>
+              </div>
+              <div class="clickup-extension__description-info">
+                <div class="clickup-extension__duedate-container">
+                  <span class="clickup-extension__label"><i class="fa-solid fa-quote-left"></i> Description:</span>
+                  <p class="clickup-extension__task-descripion">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. In recusandae aliquid eligendi incidunt quasi repudiandae dolor quam repellendus, quidem iure aperiam nesciunt quod illum qui corrupti, modi quibusdam, porro praesentium.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+
+    <!-- QA TASKS hide -->
+    <section class="clickup-extension__content hide tasks-to-qa">
+      <div class="clickup-extension--to-qa-spinner">
+        <img src="./images/spinner.gif" alt="spiner">
+      </div>
+      <header class="clickup-extension__counter-tasks to-qa">
+        <!-- Counter Tasks -->
+      </header>
+      <div class="clickup-extension__tasks-toQa-container">
+        <!-- First Task -->
+      </div>
+    </section>
+    <script defer type="module" src="./main.js"></script>
+    <script src="./plugins/sweetalert/sweetalert2.all.min.js"></script>
+  </main>
+</body>
+</html>

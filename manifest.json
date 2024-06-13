@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "Hubspot Developer Tools",
+  "version": "1.0",
+  "description": "Una extensión para llevar un control  de las tareas asignadas y sus estados en clickup",
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "./images/logo.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "notifications",
+    "tabs",
+    "webNavigation",
+    "contextMenus",
+    "scripting",
+    "offscreen"
+  ],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "host_permissions":[
+    "<all_urls>"
+  ],
+  "icons": {
+    "16": "./images/logo.png",
+    "48": "./images/logo.png",
+    "128": "./images/logo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "content-script.js"
+      ],
+      "run_at": "document_end"
+    }
+  ],
+  "options_page": "options.html",
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "monaco/*"
+      ],
+      "matches": [ "<all_urls>" ]
+    }
+  ]
+}
